@@ -6,10 +6,11 @@ on:
 
 jobs:
   deploy_code:
-    runsuses: actions/checkout@v4        
+    runs-on: ubuntu-latest    
 
     steps:
       - name: Run Ansible playbook
+        uses: actions/checkout@v4    
         with:
-          playbook: AnsibleProject/playbook.yml
-          inventory: localhost
+          playbook: AnsibleProject/playbook.yaml
+          # inventory: localhost
