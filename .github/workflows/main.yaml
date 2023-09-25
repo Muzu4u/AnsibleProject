@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Run Ansible playbook
-        uses: actions/checkout@v4    
+        uses: actions/checkout@master    
         with:
           playbook: AnsibleProject/playbook.yaml
           # inventory: localhost
