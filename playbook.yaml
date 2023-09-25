@@ -42,9 +42,9 @@
      become: true
      command: "chmod -R 775 /var/www/laravel/firstproject/storage /var/www/laravel/firstproject/bootstrap/cache"    
           
-   - name: To create a larAnsibleProject/laravel
+   - name: To copy nginx config file for laravel project
      copy:
-        src: /home/ubuntu/laravel
+        src: /home/ubuntu/AnsibleProject/laravel
         dest: /etc/nginx/sites-available/laravel
 
    - name: To restart nginx
