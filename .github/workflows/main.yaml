@@ -13,5 +13,5 @@ jobs:
         uses: actions/checkout@master
 
       - name: Running Ansible playbook 
-        run: cd AnsibleProject && ansible-playbook playbook.yaml
+        run: ansible-playbook playbook.yaml
 
