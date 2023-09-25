@@ -11,5 +11,4 @@ jobs:
       - name: Run Ansible playbook
         with:
           playbook: AnsibleProject/playbook.yml
-            # key: ${{ secrets.ansible_ssh_private_key }}
           inventory: localhost
