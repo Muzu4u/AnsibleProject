@@ -6,7 +6,8 @@ on:
 
 jobs:
   deploy_code:
-    runs-on: ubuntu-latest
+    runsuses: actions/checkout@v4        
+
     steps:
       - name: Run Ansible playbook
         with:
