@@ -1,0 +1,60 @@
+---
+
+- hosts: localhost
+  tasks:
+   - name: To update cache
+     become: true
+     command: "apt update"
+   
+   - name: To install dependencies
+     become: true
+     command: "apt install openssl php8.1 php8.1-fpm php8.1-cli php8.1-bcmath php8.1-curl php8.1-phpdbg php8.1-mbstring php8.1-pdo php8.1-mysql php8.1-tokenizer php8.1-xml php8.1-zip php8.1-gd -y"
+
+   - name: To install nginx
+     become: true
+     command: "apt-get install -y nginx -y"
+   
+   - name: To install nodejs
+     become: true
+     command: "apt-get install -y nodejs"
+     
+   - name: To install composer
+     become: true
+     command: "apt-get install -y composer"
+
+   - name: To create folder structure
+     become: true
+     command: "mkdir -p /var/www/laravel"
+
+   - name: To cd into folder structure
+     become: true
+     command: "chdir=/var/www/laravel composer create-project laravel/laravel firstproject"
+
+   - name: To install laravel project dependencies
+     become: true
+     command: "chdir=/var/www/laravel/firstproject composer install --no-dev"
+
+   - name: To provide nginx user all permissions for laravel project
+     become: true
+     command: "chown -R www-data:www-data /var/www/laravel/firstproject/storage /var/www/laravel/firstproject/bootstrap/cache"  
+   
+   - name: To provide nginx user all permissions for laravel project
+     become: true
+     command: "chmod -R 775 /var/www/laravel/firstproject/storage /var/www/laravel/firstproject/bootstrap/cache"    
+          
+   - name: To create a laravel config file for nginx
+     copy:
+        src: /home/ubuntu/laravel
+        dest: /etc/nginx/sites-available/laravel
+
+   - name: To restart nginx
+     become: true
+     command: "systemctl restart nginx"
+
+
+
+
+
+   
+     
+
