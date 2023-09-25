@@ -44,7 +44,7 @@
           
    - name: To copy nginx config file for laravel project
      copy:
-        src: /home/ubuntu/AnsibleProject/laravel
+        src: AnsibleProject/laravel
         dest: /etc/nginx/sites-available/laravel
 
    - name: To restart nginx
