@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest    
 
     steps:
-      - name: Run Ansible playbook
-        uses: actions/checkout@master    
-        with:
-          playbook: AnsibleProject/playbook.yaml
-          # inventory: localhost
+      - name: GitHub code checkout
+        uses: actions/checkout@master
+
+      - name: Running Ansible playbook 
+        run: cd AnsibleProject && ansible-playbook playbook.yaml
+
