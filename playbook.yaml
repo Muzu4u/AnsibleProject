@@ -43,6 +43,7 @@
      command: "chmod -R 775 /var/www/laravel/firstproject/storage /var/www/laravel/firstproject/bootstrap/cache"    
           
    - name: To copy nginx config file for laravel project
+     become: true
      copy:
         src: laravel
         dest: /etc/nginx/sites-available/laravel
